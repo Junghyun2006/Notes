@@ -11,20 +11,24 @@
 <body>
     <nav class="nav-bar">
         <h1>Navbar template</h1>
-        <button>+</button>
+        <button onclick="addNote()">+</button>
     </nav>
 
     <!-- array of note cards being displayed...currently just 3 note card place holders -->
-    <section>
-        <div class="note-card">
+    <section>  
+        <ul id="note-card-container">
+        </ul>
+        
+        <!-- <div class="note-card"></div> -->
+        <!-- <div class="note-card">
             <h1>Reminder</h1>
             <p>I need to pick up Jung from soccer @ 5:00 PM.</p>
             <div class="note-menu">
                 <button>Edit</button>
                 <button>Delete</button>
             </div>
-        </div>
-        <div class="note-card">
+        </div> -->
+        <!-- <div class="note-card">
             <h1>Groceries</h1>
             <ul>
                 <li>Spaghetti</li>
@@ -39,8 +43,8 @@
                 <button>Edit</button>
                 <button>Delete</button>
             </div>
-        </div>
-        <div class="note-card">
+        </div> -->
+        <!-- <div class="note-card">
             <h1>Holidays</h1>
             <ol>
                 <li>New Years</li>
@@ -52,7 +56,7 @@
                 <button>Edit</button>
                 <button>Delete</button>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <script src="index.js"></script>
