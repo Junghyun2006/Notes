@@ -26,15 +26,9 @@ addNote = () => {
     note.appendChild(deleteButton);
 } 
 
-swap = () => {
-    const items = document.querySelectorAll('.note-card');
-    items[3].parentNode.insertBefore(items[3], items[1]);
-} 
-
-
-noteContainer.addEventListener('click', (event) => {
-    if(event.target.tagName === 'BUTTON') {
-        const button = event.target;
+noteContainer.addEventListener('click', (e) => {
+    if(e.target.tagName === 'BUTTON') {
+        const button = e.target;
         const note = button.parentNode;
         const input = note.querySelector('textarea');
         const text = note.querySelector('p');
@@ -54,5 +48,33 @@ noteContainer.addEventListener('click', (event) => {
                 noteContainer.removeChild(note);
                 break;
         }
+    } 
+
+    if (e.target && e.target.matches("li")) {
+        const notes = document.querySelectorAll('.note-card');
+        e.target.id = (e.target.id === "selected") ? e.target.id = "" : "selected";
+        
+    }
+
+    const swappables = document.querySelectorAll('#selected');
+
+    if (swappables.length === 2) {
+        swapNotes(swappables[0], swappables[1])
     }
 })
+
+swapNotes = (note1, note2) => {
+
+    const temp = document.createElement("li");
+    note1.parentNode.insertBefore(temp, note1);
+
+    note2.parentNode.insertBefore(note1, note2)
+
+    temp.parentNode.insertBefore(note2, temp);
+
+    temp.parentNode.removeChild(temp)
+
+    note1.id = "";
+    note2.id = "";
+} 
+
